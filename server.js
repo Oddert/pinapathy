@@ -41,6 +41,8 @@ app.use(require('express-session')({
   }
 }));
 
+//checking location of auth branch
+
 app.use(passport.initialize());
 app.use(passport.session());
 
