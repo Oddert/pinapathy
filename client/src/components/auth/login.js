@@ -1,0 +1,87 @@
+import React from 'react';
+
+import {Redirect} from 'react-router-dom';
+
+class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+      passWarning: false,
+      nameWarning: false,
+      redirect: false
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    console.log(`${new Date().toLocaleTimeString()} This is a test log to see when things mount...`);
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+      passWarning: false,
+      nameWarning: false
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    fetch('/user/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password
+      })
+    })
+    .then(res => res.json())
+    .then((res) => {
+      console.log(res);
+      if (res.name === "IncorrectPasswordError") {
+        this.setState({passWarning: true});
+      } else if (res.name === "IncorrectUsernameError") {
+        this.setState({nameWarning: true});
+      } else {
+        this.props.updateLogin();
+        this.setState({redirect: true});
+      }
+    })
+  }
+
+  //"IncorrectPasswordError", "IncorrectUsernameError"
+
+  render() {
+    let passwordClass = this.state.passWarning ? 'warning' : '';
+    let nameClass = this.state.nameWarning ? 'warning' : '';
+    let warnBox = false;
+
+    if (this.state.nameWarning || this.state.passWarning) {warnBox = true}
+
+    if (this.state.redirect) {return <Redirect to='/home' />}
+
+    return (
+      <div className='login_form'>
+        <h2 className='login_form-title'>Log in to Pinapathy!</h2>
+        {warnBox ?
+          <div className='warn-box'>
+            {this.state.nameWarning ? <h3>Oops! That name is not registered, please check spelling and case sensitivity and try again.</h3> : ''}
+            {this.state.passWarning ? <h3>Incorrect Password! Please check spelling and case sensitivity and try again.</h3> : ''}
+          </div>
+        : ''}
+        <form onSubmit={this.handleSubmit}>
+          <input type='text' name='username' placeholder='Username' value={this.state.username} onChange={this.handleChange} className={nameClass} /><br />
+          <input type='password' name='password' placeholder='Password' value={this.state.password} onChange={this.handleChange} className={passwordClass} /><br />
+          <button className='submit'>Login!</button>
+        </form>
+        <h4>Dont yet have an account? <a href='/register'>Sign Up here</a>.</h4>
+      </div>
+    )
+  }
+}
+
+export default Login
