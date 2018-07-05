@@ -14,7 +14,7 @@ const User        = require('./models/User'),
       Comment     = require('./models/Comment');
 
 const middleware  = require('./middleware'),
-      keys        = require('./keys');
+      keys        = require('./locals/keys');
 
 var userRoutes    = require('./routes/user'),
     boardRoutes   = require('./routes/boards'),
