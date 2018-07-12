@@ -11,6 +11,7 @@ class Repin extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleOuterClick = this.handleOuterClick.bind(this);
   }
 
   handleClick() {
@@ -48,6 +49,13 @@ class Repin extends React.Component {
     }
   }
 
+  handleOuterClick(e) {
+    console.log(e.target.className);
+    if (e.target.className === 'repin_form-container') {
+      this.setState({open: false});
+    }
+  }
+
   render() {
     return (
       <div className='repin-container'>
@@ -70,28 +78,31 @@ class Repin extends React.Component {
           : ''}
 
           {this.state.open ?
-            <div className='repin_form'>
-              <h1 className='repin_form-title'>Choose a board to pin to:</h1>
-              {this.state.errorState ?
-                <div className='error'>
-                  <p className='warning'>Please choose a board before pinning</p>
-                </div>
-              : ''}
-              <form onSubmit={this.handleSubmit}>
-                <select name='board' onChange={this.handleChange}>
-                  <option value='empty'>-Please select a board-</option>
-                  {this.props.currentUser.boards.map((each, index) =>
-                    <option
-                      key={each._id}
-                      value={each._id}
-                    >
-                      {each.name}
-                    </option>
-                  )}
-                </select><br />
-                <button className='accept'>Re Pin!</button>
-              </form>
-              <button onClick={this.handleClick} className='cancel'>Cancel</button>
+            <div className='repin_form-container' onClick={this.handleOuterClick}>
+              <div className='repin_form'>
+                <button onClick={this.handleClick} className='close-icon'>X</button>
+                <h1 className='repin_form-title'>Choose a board to pin to:</h1>
+                {this.state.errorState ?
+                  <div className='error'>
+                    <p className='warning'>Please choose a board before pinning</p>
+                  </div>
+                : ''}
+                <form onSubmit={this.handleSubmit}>
+                  <select name='board' onChange={this.handleChange}>
+                    <option value='empty'>-Please select a board-</option>
+                    {this.props.currentUser.boards.map((each, index) =>
+                      <option
+                        key={each._id}
+                        value={each._id}
+                      >
+                        {each.name}
+                      </option>
+                    )}
+                  </select><br />
+                  <button className='accept'>Re Pin!</button>
+                </form>
+                <button onClick={this.handleClick} className='cancel'>Cancel</button>
+              </div>
             </div>
           : ''}
 

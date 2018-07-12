@@ -287,6 +287,16 @@
 
 /* ========== / PIN ========== */
 
+.repin_form-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(190,195,199, 0.3);
+  z-index: 600;
+}
+
 .repin_form {
   position: fixed;
   top: 50vh;
@@ -298,6 +308,7 @@
   padding: 20px;
   border-radius: 10px;
   transition: 0.2 linear;
+  z-index: 600;
 }
 
 .repin_form .error {
@@ -356,6 +367,26 @@
   cursor: pointer;
 }
 
+.repin_form .close-icon {
+  border: 1px solid #bec3c7;
+  position: absolute;
+  top: 0px;
+  right: -50px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: #ecf0f1;
+  font-weight: 750;
+  font-size:  1.1em;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+
+.repin_form .close-icon:hover {
+  background-color: white;
+  box-shadow: 2px 2px 20px rgba(41,127,184, 0.5);
+  transform: scale(1.01);
+}
+
 /* ========== NEW PIN FORM ========== */
 
 .new-pin {
@@ -365,7 +396,7 @@
   background-color: white;
   border-radius: 50px;
   border: 3px solid #297fb8;
-  top: 10vh;
+  top: 15vh;
   left: 50vw;
   transform: translate(-50%, 0%);
   padding: 30px 0px;
@@ -550,7 +581,6 @@
   background-color: rgba(230,230,230,0.4);
   transition: 0.2s linear;
   z-index: 300;
-  /* border: 3px dashed red; */
   display: flex;
   justify-content: center;
 }
@@ -576,29 +606,160 @@
   word-break: break-all;
 }
 
-.pin.open .title {
-  color: red;
+.pin.open .imgPage a {
+  color: #bec3c7;
 }
+
+.pin.open .imgPage a:hover {
+  color: #95a5a5;
+}
+
+/* .pin.open .imgPage:hover */
+
+.pin.open .title {
+  display: flex;
+  justify-content: center;
+  /* color: red; */
+}
+
+.pin.open h3 {
+  margin-right: 10px;
+}
+
+.pin.open .like-container {
+  align-self: center;
+  /* color: green; */
+}
+
+.comment_new_form {
+  border: 1px solid #fff;
+  border-radius: 20px;
+  display: flex;
+  margin-top: 14px;
+}
+
+.comment_new_form input {
+  border: 1px solid #bec3c7;
+  border-right: none;
+  background-color: #fff;
+  border-radius: 20px 0px 0px 20px;
+  flex: 5;
+  padding: 14px;
+  transition: 0.2s linear;
+}
+
+.comment_new_form input:focus {
+  border: 1px solid #2dcc70;
+  box-shadow: 0px 0px 30px rgba(39,174,97, 0.3);
+}
+
+.comment_new_form button {
+  border: 1px solid #2dcc70;
+  background-color: #fff;
+  border-radius: 0px 20px 20px 0px;
+  flex: 1;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.comment_new_form button:hover {
+  background-color: #2dcc70;
+  color: #ecf0f1;
+}
+
+.comment_new_form button:active {
+  background-color: #27ae61;
+}
+
+
+
+.new-pin .submit {
+  width: 70%;
+  border: 1px solid red;
+  border-radius: 20px;
+  border: 1px solid #2dcc70;
+  background-color: white;
+  padding: 10px;
+  transition: 0.2s linear;
+}
+
+.new-pin .submit:hover {
+  background-color: #2dcc70;
+  box-shadow: 0px 0px 30px rgba(39,174,97, 0.3);
+}
+
+
+
 
 /* ========== / PIN OPEN ========== */
 
 /* ========== PIN DELETE FORM ========== */
 
+.pin-delete-flex {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  transition: 0.2s linear;
+  z-index: 300;
+  display: flex;
+  justify-content: center;
+}
+
 .pin-delete {
-  width: 60vw;
-  height: 40vh;
+  min-width: 60vw;
+  min-height: 40vh;
   position: fixed;
   background-color: white;
   border-radius: 50px;
   border: 3px solid #e84c3d;
-  top: 50vh;
+  top: 10vh;
   left: 50vw;
-  transform: translate(-50%, -50%);
+  padding: 20px 0px;
+  transform: translate(-50%, 0%);
 }
 
 .pin-delete > .text {
-  margin-top: 30px;
+  margin-top: 0px;
   padding: 20px;
+}
+
+.pin-delete .accept-del {
+  color: #E84C3D;
+  /* color: black; */
+  background-color: #fff;
+  border: 1px solid #e84c3d;
+  padding: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.2s linear;
+}
+
+.pin-delete .reject-del {
+  color: #fff;
+  background-color: #2dcc70;
+  border: 1px solid #2dcc70;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.pin-delete .accept-del:hover {
+  color: black;
+  box-shadow: 0px 0px 30px rgba(232,76,61, 0.3);
+  text-decoration: underline;
+  margin-right: 9px;
+  border: 2px solid #e84c3d;
+}
+
+.pin-delete .reject-del:hover {
+  background-color: #2dcc70;
+  color: #ecf0f1;
+  box-shadow: 0px 0px 30px rgba(39,174,97, 0.3);
 }
 
 .pin-delete > .close-icon {
@@ -608,20 +769,56 @@
   cursor: pointer;
 }
 
+
+.pin-delete .close-icon {
+  border: 1px solid #bec3c7;
+  position: absolute;
+  top: 0px;
+  right: -50px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: #ecf0f1;
+  font-weight: 750;
+  font-size:  1.1em;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+
+.pin-delete .close-icon:hover {
+  background-color: white;
+  box-shadow: 2px 2px 20px rgba(41,127,184, 0.5);
+  transform: scale(1.01);
+}
+
 /* ========== PIN DELETE FORM ========== */
 
 /* ========== PIN EDIT FORM ========== */
 
+.pin-edit-flex {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  /* background-color: rgba(230,230,230,0.4); */
+  transition: 0.2s linear;
+  z-index: 300;
+  display: flex;
+  justify-content: center;
+}
+
 .pin-edit {
   width: 70vw;
-  position: fixed;
+  position: absolute;
   background-color: white;
   border-radius: 50px;
   border: 3px solid #297fb8;
-  top: 50vh;
+  top: 10vh;
   left: 50vw;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   padding: 30px 0px;
+  z-index: 600;
 }
 
 .pin-edit label {
@@ -660,16 +857,39 @@
   background-color: white;
   padding: 10px;
   transition: 0.2s linear;
+  cursor: pointer;
 }
 
 .pin-edit .submit:hover {
   background-color: #2dcc70;
+  color: #ecf0f1;
   box-shadow: 0px 0px 30px rgba(39,174,97, 0.3);
 }
 
 .pin-edit .image-preview {
   max-height: 100px;
 }
+
+.pin-edit .close-icon {
+  border: 1px solid #bec3c7;
+  position: absolute;
+  top: 0px;
+  right: -50px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: #ecf0f1;
+  font-weight: 750;
+  font-size:  1.1em;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+
+.pin-edit .close-icon:hover {
+  background-color: white;
+  box-shadow: 2px 2px 20px rgba(41,127,184, 0.5);
+  transform: scale(1.01);
+}
+
 
 /* ========== / PIN EDIT FORM ========== */
 
@@ -1139,7 +1359,7 @@
 }
 
 .comment_icon svg {
-  cursor: default;
+  cursor: pointer;
 }
 
 .comment_icon-1, .comment_icon-2 {

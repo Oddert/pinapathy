@@ -76,7 +76,7 @@ class NewPin extends React.Component {
           <label>Image Link:</label><br />
           <input type='url' name='src' placeholder='Image Link' value={this.state.src} onChange={this.handleChange} required /><br />
 
-          <label>Image preview: {this.state.dispSrc.toString()}</label><br />
+          <label>Image preview:{/* {this.state.dispSrc.toString()}*/}</label><br />
           <img src={this.state.dispSrc ? this.state.src : 'https://static.umotive.com/img/product_image_thumbnail_placeholder.png'} onError={this.addDefaultSrc} alt='A preview of the link' className='img-preview' /><br />
           <img src={this.state.src} onError={this.addDefaultSrc} alt='no' className='hidden' /><br />
 

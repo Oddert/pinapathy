@@ -70,6 +70,7 @@ class Edit extends React.Component {
         </svg>
       </button>
         {this.state.open ?
+          <div className='pin-edit-flex'>
           <div className='pin-edit'>
             <button onClick={this.handleClick} className='close-icon'>X</button>
             <form onSubmit={this.handleSubmit}>
@@ -91,6 +92,7 @@ class Edit extends React.Component {
               <button className='submit'>Save</button>
             </form>
           </div>
+        </div>
            : ''}
       </div>
     )

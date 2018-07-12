@@ -14,6 +14,8 @@ class Login extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.githubAuth = this.githubAuth.bind(this);
   }
 
   componentDidMount() {
@@ -53,6 +55,19 @@ class Login extends React.Component {
     })
   }
 
+  githubAuth() {
+    console.log('Sending fetch to \'/auth/github...');
+    fetch('/auth/github', {
+      method: 'GET',
+      credentials: 'include',
+      mode: 'no-cors'
+    })
+    .then(res => res.json())
+    .then((res) => {
+      console.log(res);
+    })
+  }
+
   //"IncorrectPasswordError", "IncorrectUsernameError"
 
   render() {
@@ -79,6 +94,13 @@ class Login extends React.Component {
           <button className='submit'>Login!</button>
         </form>
         <h4>Dont yet have an account? <a href='/register'>Sign Up here</a>.</h4>
+        {/* <button onClick={this.githubAuth}>Click here to login with github</button><br /> */}
+        {/* <a href='/auth/github' target='_blank'>href = /auth/github</a><br /> */}
+        <a href='http://localhost:5000/auth/github' target='_blank' rel="noopener noreferrer">Login with GitHub <i className='fa fa-github'></i></a><br />
+        {/* <a href='http://localhost:3000/auth/github' target='_blank'>href = http://localhost:3000/auth/github</a><br />
+        <a href='https://twitter.com/' target='_blank'>href = https://twitter.com/</a><br />
+        <a href='http://localhost:5000/login' target='_blank'>Target: _blank, href = http://localhost:5000/login</a><br />
+        <Link to="/someurl" target="_blank">Link element plz help me</Link> */}
       </div>
     )
   }

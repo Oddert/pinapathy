@@ -7,8 +7,8 @@ class CommentDisplay extends React.Component {
         <div
           className='comment_icon'
           >
-            <div className='svg' onClick={this.handleLike}>
-              <svg data-name="comment_icon_Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 131.11">
+            <div className='svg' onClick={this.props.handleClick}>
+              <svg data-name="comment_icon_Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 131.11" id='comment_icon'>
                 <path className="comment_icon-1" d="M595.28,751.18" transform="translate(-530.25 -332.75)"/>
                 <line className="comment_icon-2" x1="28.72" y1="41.76" x2="99.58" y2="41.76"/>
                 <line className="comment_icon-2" x1="28.72" y1="24.75" x2="99.58" y2="24.75"/>

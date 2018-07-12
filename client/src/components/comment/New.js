@@ -36,7 +36,7 @@ class CommentNew extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className='comment_new_form'>
         <input type='text' name='input' value={this.state.input} onChange={this.handleChange} placeholder='Add a comment' />
         <button>Add Comment</button>
       </form>

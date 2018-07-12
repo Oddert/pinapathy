@@ -8,6 +8,7 @@ class Delete extends React.Component {
     }
     this.handleDeleteToggle = this.handleDeleteToggle.bind(this);
     this.handleDeleteSubmit = this.handleDeleteSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleDeleteToggle() {
@@ -32,6 +33,12 @@ class Delete extends React.Component {
     })
   }
 
+  handleClick(e) {
+    if (e.target.className === 'pin-delete-flex') {
+      this.setState({deleting: false});
+    }
+  }
+
   render() {
     return (
       <div className='pin-delete-container'>
@@ -50,11 +57,13 @@ class Delete extends React.Component {
 
       </button>
         {this.state.deleting ?
-          <div className='pin-delete'>
-            <button onClick={this.handleDeleteToggle} className='close-icon'>X</button>
-            <h3 className='text'>Are you sure you want to delete this item? (this cannot be undone)</h3>
-            <button onClick={this.handleDeleteSubmit}>Yes, Delete this Pin.</button>
-            <button onClick={this.handleDeleteToggle}>No, go back</button>
+          <div className='pin-delete-flex' onClick={this.handleClick}>
+            <div className='pin-delete'>
+              <button onClick={this.handleDeleteToggle} className='close-icon'>X</button>
+              <h3 className='text'>Are you sure you want to delete this item? (this cannot be undone)</h3>
+              <button onClick={this.handleDeleteSubmit} className='accept-del'>Yes, Delete this Pin.</button>
+              <button onClick={this.handleDeleteToggle} className='reject-del'>No, go back</button>
+            </div>
           </div>
         : ''}
       </div>

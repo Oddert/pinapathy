@@ -38,11 +38,13 @@ class Open extends React.Component {
               id={this.props.display.name + '_image'}
             />
           </a>
-          <h6 className='imgPage'>{this.props.display.imgPage}</h6>
+          <h6 className='imgPage'><a href={this.props.display.imgPage}>{this.props.display.imgPage}</a></h6>
 
-          <PinLike id={this.props.pin._id} likes={this.props.display.likes} isAuth={this.props.isAuth} isAuthor={this.props.isAuthor} callback={this.props.handleLike} />
+          <div className='title'>
+            <h3>{this.props.display.name}</h3>
+            <PinLike id={this.props.pin._id} likes={this.props.display.likes} isAuth={this.props.isAuth} isAuthor={this.props.isAuthor} callback={this.props.handleLike} userLiked={this.props.userLiked} />
+          </div>
 
-          <h3 className='title'>{this.props.display.name}</h3>
           <p className='description'>{this.props.display.description}</p>
 
           {this.props.isAuth ?

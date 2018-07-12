@@ -88,6 +88,7 @@ class Register extends React.Component {
           <button className='submit'>Sign Up!</button>
         </form>
         <h4>Already have an account? <a href='/register'>Log In here</a>.</h4>
+        <a href='http://localhost:5000/auth/github' target='_blank' rel="noopener noreferrer">Login with GitHub <i className='fa fa-github'></i></a><br />
       </div>
     )
   }

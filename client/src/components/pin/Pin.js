@@ -67,10 +67,12 @@ class Pin extends React.Component {
   }
 
   handleClick(e) {
+    console.log(e.target.id);
     switch (e.target.id) {
       case 'pin_thumbnail':
       case 'pinOpen_container':
       case 'pin_close':
+      case 'comment_icon':
         this.setState({open: !this.state.open});
         break;
       default:
@@ -78,9 +80,10 @@ class Pin extends React.Component {
     }
   }
 
-  handleEdit(display) {
+  handleEdit(update) {
     console.log('Edit callback: ');
-    console.log(display);
+    console.log(update);
+    let display = Object.assign({}, this.state.display, update);
     this.setState({display});
   }
 
@@ -107,11 +110,19 @@ class Pin extends React.Component {
         />
         <h4>{this.state.display.name}</h4>
         <em>{pin.author.username}</em>
+        <p>
+          {this.state.display.description ?
+            this.state.display.description.length > 50 ?
+              this.state.display.description.slice(0, 50) + '...' :
+              this.state.display.description :
+            ''
+          }
+        </p>
         {/* <p>userLiked: {this.state.userLiked.toString()}</p> */}
 
         <div className='interact'>
           <Like id={this.props.pin._id} likes={this.state.display.likes} isAuth={this.props.isAuth} isAuthor={isAuthor} callback={this.handleLike} userLiked={this.state.userLiked} />
-          <CommentDisplay comments={this.props.pin.comments.length} />
+          <CommentDisplay comments={this.props.pin.comments.length} handleClick={this.handleClick} />
           {this.props.currentUser ? !isAuthor ? <Repin currentUser={this.props.currentUser} isAuth={this.props.isAuth} isAuthor={isAuthor} pin={this.props.pin} /> : '' : ''}
         </div>
 
@@ -131,6 +142,7 @@ class Pin extends React.Component {
             isAuth={this.props.isAuth}
             isAuthor={isAuthor}
             currentUser={this.props.currentUser}
+            userLiked={this.state.userLiked}
           /> : ''}
       </div>
     )

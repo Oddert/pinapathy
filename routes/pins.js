@@ -152,7 +152,7 @@ router.put('/:id/like', middleware.isLoggedIn, (req, res) => {
 
 router.put('/:id/repin', middleware.isLoggedIn, (req, res) => {
   console.log('User attempting to repin an item...');
-
+  console.log(req.user);
   User.findById(req.user._id, (err, foundUser) => {
     if (err) {
       console.log(err);
@@ -183,15 +183,18 @@ router.put('/:id/repin', middleware.isLoggedIn, (req, res) => {
                   console.log(err);
                   res.status(500).json({error: err});
                 } else {
-                  createdPin.pinnedTo.push({
-                    name: foundboard.name,
+                  console.log('Pin create successfull');
+                  console.log(createdPin);
+                  createdPin.pinnedTo = [{
+                    name: foundBoard.name,
                     id: foundBoard._id
-                  });
+                  }];
                   createdPin.save();
 
                   foundBoard.pins.push(createdPin._id);
                   foundBoard.save();
 
+                  targetPin.repinnedTo = targetPin.repinnedTo ? targetPin.repinnedTo : [];
                   targetPin.repinnedTo.push({
                     name: createdPin.name,
                     id: createdPin._id
