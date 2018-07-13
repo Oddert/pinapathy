@@ -98,7 +98,7 @@ class Login extends React.Component {
         {/* <a href='/auth/github' target='_blank'>href = /auth/github</a><br /> */}
 
         {/* THIS ONE FOR DEVELOPMENT: */}
-        <a href='http://localhost:5000/auth/github' target='_blank' rel="noopener noreferrer">[Dev Only] Login with GitHub <i className='fa fa-github'></i></a><br />
+        {/* <a href='http://localhost:5000/auth/github' target='_blank' rel="noopener noreferrer">[Dev Only] Login with GitHub <i className='fa fa-github'></i></a><br /> */}
 
         {/* THIS ONE FOR GLITCH: */}
         <a href='/auth/github' target='_blank' rel="noopener noreferrer">Login with GitHub <i className='fa fa-github'></i></a><br />
