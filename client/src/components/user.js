@@ -48,16 +48,16 @@ class User extends React.Component {
     console.log(this.props.currentUser);
     if (this.props.isAuth && this.props.currentUser && this.props.currentUser.username === this.state.username) {
       return (
-        <div>
+        <div className='user_page'>
           <h1>Welcome to your page, {this.state.username}</h1>
-          <button onClick={this.handleClick} id='new-board'>Create New Board</button>
+          <button onClick={this.handleClick} id='new-board' className='create-board'>Create New Board +</button>
           {this.state.newBoardOpen ? <NewBoard user={this.props.currentUser} callback={this.callUserData} /> : ''}
           {this.state.userObject.boards.map(each => <UserBoard key={each._id} board={each} callback={this.callUserData} isAuthor={true} />)}
         </div>
       )
     }
     return (
-      <div>
+      <div className='user_page'>
         <h1>Welcome to {this.state.username}'s profile</h1>
         {this.state.userObject.boards.map(each => <UserBoard key={each._id} board={each} callback={this.callUserData} isAuthor={false} />)}
       </div>

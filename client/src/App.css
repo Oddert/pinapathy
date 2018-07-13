@@ -22,6 +22,46 @@
 
 /* ========== / Boilerplate stuff ========== */
 
+
+/* ======================================================== */
+/* ==========           File Structure           ========== */
+/* ======================================================== */
+
+/*
+  -landing grid
+  -navbar
+  -User Page
+  -User Page: Board
+
+  -Pin
+  -Re Pin
+
+  -New Pin
+  -New Board Form
+
+  -Pin Open
+  -Pin Open: Comment form
+  	-New Pin
+  -Pin Delete Form
+  -Pin Edit
+
+  -Login Page
+  -Register Page
+
+  -Comment Page
+  	-Comment Delete
+  -Comment Edit
+
+  -Like Button
+  -Edit Button
+  -Delete Button
+  -Comment Button
+  -Re PIN Button
+*/
+
+
+
+
 .landing-grid {
   /* border: 1px dashed #bec3c7; */
   width: 100%;
@@ -132,10 +172,44 @@
 
 /* ========== / Navbar ========== */
 
+
+
+/* ========== USER PAGE ========== */
+
+.user_page .create-board {
+ padding: 16px 20px;
+ font-size: 1em;
+ cursor: pointer;
+ border: 1px solid #27ae61;
+ background-color: #27ae61;
+ border-radius: 20px;
+ color: #ecf0f1;
+ transition: 0.2s linear;
+ margin-bottom: 14px;
+}
+
+.user_page .create-board:hover {
+  box-shadow: 0px 0px 30px rgba(45,204,112, 0.3);
+  transform: scale(1.005);
+  color: #fff;
+}
+
+/* ========== USER PAGE ========== */
+
+
+
 /* ========== USER PAGE: BOARD ========== */
 
 .userBoard {
-  border: 1px solid black;
+  border: 1px solid #bec3c7;
+  border-radius: 20px;
+  box-shadow: 6px 6px 20px rgba(1,1,1,0.3);
+  margin: 0px 10px 20px 10px;
+  padding: 10px;
+}
+
+.userBoard .created {
+  font-size: 0.7em;
 }
 
 .userBoard-delete {
@@ -184,7 +258,54 @@
   right: 50px;
 }
 
+.userBoard .titleContainer {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.userBoard .titleContainer h3 {
+  margin-right: 10px;
+}
+
+.userBoard .modify {
+  /* flex: 1; */
+  display: flex;
+  align-items: center;
+}
+
+.userBoard-flex {
+  display: flex;
+  align-items: center;
+}
+
+.userBoard-flex-details {
+  flex: 2;
+}
+
+.userBoard-flex-imgs {
+  flex: 3;
+  display: flex;
+  align-items: center;
+}
+
+.sample_thum {
+  flex: 1;
+  padding: 4px 10px;
+  /* justify-content: center;
+  align-items: center;
+  align-content: center; */
+}
+
+.sample_thum img {
+  max-width: 100%;
+  max-height: 135px;
+  /* align-self: center; */
+}
+
 /* ========== / USER PAGE: BOARD ========== */
+
+
 
 /* ========== PIN ========== */
 
@@ -287,6 +408,10 @@
 
 /* ========== / PIN ========== */
 
+
+
+/* ========== Re PIN ========== */
+
 .repin_form-container {
   width: 100vw;
   height: 100vh;
@@ -387,6 +512,10 @@
   transform: scale(1.01);
 }
 
+/* ========== / Re PIN ========== */
+
+
+
 /* ========== NEW PIN FORM ========== */
 
 .new-pin {
@@ -458,11 +587,13 @@
   background-color: white;
   padding: 10px;
   transition: 0.2s linear;
+  cursor: pointer;
 }
 
 .new-pin .submit:hover {
   background-color: #2dcc70;
   box-shadow: 0px 0px 30px rgba(39,174,97, 0.3);
+  color: #ecf0f1;
 }
 
 .new-pin .image-preview {
@@ -470,6 +601,8 @@
 }
 
 /* ========== / NEW PIN FORM ========== */
+
+
 
 /* ========== NEW BOARD FORM ========== */
 
@@ -548,6 +681,8 @@
 
 /* ========== / NEW BOARD FORM ========== */
 
+
+
 /* ========== PIN OPEN ========== */
 
 #pin_close {
@@ -614,8 +749,6 @@
   color: #95a5a5;
 }
 
-/* .pin.open .imgPage:hover */
-
 .pin.open .title {
   display: flex;
   justify-content: center;
@@ -630,6 +763,12 @@
   align-self: center;
   /* color: green; */
 }
+
+/* ========== / PIN OPEN ========== */
+
+
+
+/* ========== PIN OPEN: COMMENT FORM ========== */
 
 .comment_new_form {
   border: 1px solid #fff;
@@ -671,7 +810,10 @@
   background-color: #27ae61;
 }
 
+/* ========== PIN OPEN: COMMENT FORM ========== */
 
+
+/* ========== NEW PIN ========== */
 
 .new-pin .submit {
   width: 70%;
@@ -688,10 +830,11 @@
   box-shadow: 0px 0px 30px rgba(39,174,97, 0.3);
 }
 
-
-
+/* ========== / NEW PIN ========== */
 
 /* ========== / PIN OPEN ========== */
+
+
 
 /* ========== PIN DELETE FORM ========== */
 
@@ -790,7 +933,9 @@
   transform: scale(1.01);
 }
 
-/* ========== PIN DELETE FORM ========== */
+/* ========== / PIN DELETE FORM ========== */
+
+
 
 /* ========== PIN EDIT FORM ========== */
 
@@ -890,8 +1035,9 @@
   transform: scale(1.01);
 }
 
-
 /* ========== / PIN EDIT FORM ========== */
+
+
 
 /* ========== LOGIN PAGE ========== */
 
@@ -950,6 +1096,8 @@
 }
 
 /* ========== / LOGIN PAGE ========== */
+
+
 
 /* ========== REGISTER PAGE ========== */
 
@@ -1014,7 +1162,9 @@
 /* ========== / REGISTER PAGE ========== */
 
 
+
 /* ========== COMMENT PAGE ========== */
+
 .comment {
   border: 1px solid #becec7;
   box-shadow: 3px 3px 10px rgba(1,1,50, 0.1);
@@ -1054,6 +1204,8 @@
 }
 
 
+/* ========== COMMENT DELETE ========== */
+
 .comment_delete {
   /* border: 1px solid green; */
 }
@@ -1084,8 +1236,6 @@
   padding: 20px;
   max-width: 70vw;
 }
-
-
 
 .comment_delete .warning_box .message .submit {
   border: 1px solid #bec3c7;
@@ -1135,6 +1285,11 @@
   box-shadow: 2px 2px 20px rgba(41,127,184, 0.5);
   transform: scale(1.01);
 }
+
+/* ========== / COMMENT DELETE ========== */
+
+
+/* ========== COMMENT EDIT ========== */
 
 .comment_edit {
   /* border: 1px solid green; */
@@ -1227,7 +1382,15 @@
   box-shadow: 2px 2px 20px rgba(41,127,184, 0.5);
   transform: scale(1.01);
 }
+
+/* ========== COMMENT EDIT ========== */
+
+
 /* ========== / COMMENT PAGE ========== */
+
+
+
+/* ========== LIKE BUTTON ========== */
 
 .like-container {
   text-align: left;
@@ -1297,6 +1460,11 @@
   fill: #e84c3d;
 }
 
+/* ========== / LIKE BUTTON ========== */
+
+
+
+/* ========== EDIT BUTTON ========== */
 
 .editIcon-1, .editIcon-2 {
   fill: none;
@@ -1324,7 +1492,11 @@
   stroke: #517394;
 }
 
+/* ========== / EDIT BUTTON ========== */
 
+
+
+/* ========== DELETE BUTTON ========== */
 
 .deleteIcon-1, .deleteIcon-2, .deleteIcon-3 {
   stroke: #34495e;
@@ -1350,7 +1522,11 @@
   stroke: #517394;
 }
 
+/* ========== / DELETE BUTTON ========== */
 
+
+
+/* ========== COMMENT BUTTON ========== */
 
 .comment_icon {
   display: flex;
@@ -1377,7 +1553,11 @@
   stroke-width: 10px;
 }
 
+/* ========== / COMMENT BUTTON ========== */
 
+
+
+/* ========== Re PIN BUTTON ========== */
 
 .repin_icon {
   display: flex;
@@ -1409,6 +1589,8 @@
 .repin_icon .svg {
   margin: 0;
 }
+
+/* ========== Re PIN BUTTON ========== */
 
 
 
@@ -1442,9 +1624,4 @@
   .login_form .warn-box {
     width: 90%;
   }
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

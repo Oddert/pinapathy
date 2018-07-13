@@ -25,6 +25,22 @@ router.get('/:id', (req, res) => {
         })
 })
 
+router.get('/thumbnails/:id', (req, res) => {
+  Board.findById(req.params.id)
+        .populate('pins')
+        .exec((err, foundBoard) => {
+          if (err) {
+            console.log(err);
+            res.status(500).json({error: err});
+          } else {
+            res.status(200).json({
+              message: 'Found thumbnails ok.',
+              pins: foundBoard.pins.slice(0,3)
+            })
+          }
+        })
+})
+
 router.post('/', middleware.isLoggedIn, (req, res) => {
   User.findById(req.body.id, (err, foundUser) => {
     if (err) {
