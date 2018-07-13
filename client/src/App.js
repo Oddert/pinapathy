@@ -96,7 +96,9 @@ class App extends Component {
               <li><a href='/home'>Home</a></li>
               {!this.state.isLoggedIn ? <li><a href='/register'>Sign Up</a></li> : ''}
               {!this.state.isLoggedIn ? <li><a href='/login'>Log In</a></li> : ''}
+
               {this.state.isLoggedIn ? <li><a href={'/user/' + this.state.user.username}>Your Page</a></li> : ''}
+
               {this.state.isLoggedIn ? <li><button onClick={this.handleClick} id='logout'>Logout</button></li> : ''}
               {this.state.isLoggedIn ? <li><button onClick={this.handleClick} id='newBoard'>New Board</button></li> : ''}
               {this.state.isLoggedIn ? <li><button onClick={this.handleClick} id='newPin'>New Pin</button></li> : ''}

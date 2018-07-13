@@ -124,7 +124,7 @@ app.use('/pin', pinRoutes);
 app.use('/comment', commentRoutes);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+  res.sendFile(path.join(__dirname + '/production_build/build/index.html'));
 });
 
 

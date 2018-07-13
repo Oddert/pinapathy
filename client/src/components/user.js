@@ -26,7 +26,7 @@ class User extends React.Component {
 
   callUserData() {
     this.setState({newBoardOpen: false})
-    fetch('/user/' + this.props.location.pathname.slice(6), {
+    fetch('/user/lookup/' + this.props.location.pathname.slice(6), {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include'

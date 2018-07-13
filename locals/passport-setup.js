@@ -24,7 +24,7 @@ passport.use(
     clientSecret: keys.github.clientSecret
   },
   (accessToken, refreshToken, profile, done) => {
-    console.log('Passport Github callback confirmed');
+    console.log('Passport Github callback confirmed, Profile:');
     console.log(profile);
 
     //wtf does this profile obj look like??? ?? ?? ???? ???

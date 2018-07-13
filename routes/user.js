@@ -55,7 +55,8 @@ router.post('/logout', (req, res) => {
   res.json({message: 'You are now signed out, come bac soon!'});
 });
 
-router.get('/:username', (req, res) => {
+router.get('/lookup/:username', (req, res) => {
+  console.log('User data requested at /user/lookup/:username');
   User.findOne({username: req.params.username})
       .populate('boards')
       .exec((err, foundUser) => {
