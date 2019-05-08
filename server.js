@@ -34,7 +34,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname + '/client/build')));
+app.use(express.static(path.join(__dirname, '/client/build')));
+app.use(express.static(path.join(__dirname, '/production_build')));
 
 app.use(require('express-session')({
   secret: process.env.SECRET,
@@ -127,7 +128,7 @@ app.use('/pin', pinRoutes);
 app.use('/comment', commentRoutes);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/production_build/build/index.html'));
+  res.sendFile(path.join(__dirname + '/production_build/index.html'));
 });
 
 
