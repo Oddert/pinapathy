@@ -1,3 +1,6 @@
+
+require('dotenv').config()
+
 var express         = require('express'),
     app             = express(),
     bodyParser      = require('body-parser'),
@@ -14,7 +17,7 @@ const User          = require('./models/User'),
       Comment       = require('./models/Comment');
 
 const middleware    = require('./middleware'),
-      keys          = require('./locals/keys'),
+      // keys          = require('./locals/keys'),
       passportSetup = require('./locals/passport-setup');
 
 var userRoutes      = require('./routes/user'),
