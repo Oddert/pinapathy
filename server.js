@@ -23,9 +23,9 @@ var userRoutes      = require('./routes/user'),
     commentRoutes   = require('./routes/comment'),
     githubRoutes    = require('./routes/github');
 
-var port = 5000;
+var port = process.env.PORT || 5000;
 
-mongoose.connect("mongodb://" + keys.mongodb.MADE_WITH + ":" + keys.mongodb.SECRET + "@ds259499.mlab.com:59499/freecodecamp-playground");
+mongoose.connect(process.env.DATABASE);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -34,7 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname + '/client/build')));
 
 app.use(require('express-session')({
-  secret: 'Multivitamin and Mineral Food Supplement 180 Tablets. What does it do? This product contains essential nutrients',
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
