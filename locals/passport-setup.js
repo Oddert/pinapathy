@@ -1,8 +1,6 @@
 const passport        = require('passport'),
       GithubStrategy  = require('passport-github');
-
-const keys            = require('./keys');
-
+      
 const User            = require('../models/User');
 
 passport.serializeUser((user, done) => {
@@ -20,8 +18,8 @@ passport.deserializeUser((id, done) => {
 passport.use(
   new GithubStrategy({
     callbackURL: '/auth/github/redirect',
-    clientID: keys.github.clientID,
-    clientSecret: keys.github.clientSecret
+    clientID: process.env.clientID,
+    clientSecret: process.env.clientSecret
   },
   (accessToken, refreshToken, profile, done) => {
     console.log('Passport Github callback confirmed, Profile:');
