@@ -9,7 +9,7 @@
     "server": "nodemon server.js",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
-    "build": "rm -rf production_build cd client && npm run build && npm run production"
+    "build": "rm -rf production_build & cd client && npm run build && npm run production"
   },
   "author": "Robyn Veitch",
   "license": "MIT",

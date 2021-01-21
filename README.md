@@ -34,4 +34,4 @@ $ npm start
 | server | nodemon app.js                                 | runs the server with auto restart              |
 | client | cd client && npm start                         | starts the development server for the client   |
 | dev    | concurrently "npm run server" "npm run client" | run both the client and server for development |
-| build    | rm -rf production_build cd client && npm run build && npm run production | create a production build for the client |
+| build    | rm -rf production_build && cd client && npm run build && npm run production | create a production build for the client |
