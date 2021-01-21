@@ -23,8 +23,8 @@ $ npm run build
 $ npm start
 ```
 
-<!-- ## Live Demo -->
-<!-- [https://oddert-chess-game-1.glitch.me/](https://oddert-chess-game-1.glitch.me/) -->
+## Live Demo
+[https://candle-liver.glitch.me/](https://candle-liver.glitch.me/)
 
 ## Scripts
 | script | command                                        | action
